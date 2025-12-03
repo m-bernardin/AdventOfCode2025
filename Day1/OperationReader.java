@@ -25,7 +25,7 @@ public class OperationReader{
     }
 
     public void setup(){
-        input=new File("Day1\\test.txt");
+        input=new File("Day1\\input.txt");
         if(input.exists()) System.out.println("File found");
         else
             try {
