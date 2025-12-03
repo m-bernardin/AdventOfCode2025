@@ -29,7 +29,7 @@ public class Parser {
     }
 
     public void setup(){
-        input=new File("Day2\\input.txt");
+        input=new File("Day2\\test.txt");
         if(input.exists()) System.out.println("File found");
         else
             try {
