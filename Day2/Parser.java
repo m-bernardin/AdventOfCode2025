@@ -1,4 +1,4 @@
-package Day2;
+//package Day2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,7 +29,7 @@ public class Parser {
     }
 
     public void setup(){
-        input=new File("Day2\\test.txt");
+        input=new File("Day2\\input.txt");
         if(input.exists()) System.out.println("File found");
         else
             try {

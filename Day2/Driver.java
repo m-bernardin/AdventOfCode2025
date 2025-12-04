@@ -1,5 +1,4 @@
-package Day2;
-
+//package Day2;
 public class Driver {
     public static void main(String[] args)
 	{
