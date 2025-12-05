@@ -1,32 +1,33 @@
-package Day1;
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class OperationReader{
+public class Reader2 {
     private File input;
     private Scanner reader;
-    private ArrayList<String> operations;
+    private ArrayList<String> ranges;
 
-    public OperationReader(){
+    public Reader2(){
         setup();
         readInput();
     }
 
     public void readInput(){
         while(reader.hasNext()){
-            String op = reader.next();
-            operations.add(op);
-            //System.out.println(op);
+            String range = reader.next();
+            ranges.add(range);
         }
         System.out.println("//////array read-out//////");
-        for(int i=0;i<operations.size();++i){
-            System.out.println(operations.get(i));
+        for(int i=0;i<ranges.size();++i){
+            System.out.println(ranges.get(i));
         }
         System.out.println("/////array read out complete/////");
     }
 
     public void setup(){
-        input=new File("Day1\\Day1\\input.txt");
+        input=new File("Day2\\input.txt");
         if(input.exists()) System.out.println("File found");
         else
             try {
@@ -40,14 +41,12 @@ public class OperationReader{
             System.out.println("An exception occured");
             e.printStackTrace();
         }
-        reader.useDelimiter("\n");
-        operations=new ArrayList<String>();
+        reader.useDelimiter(",");
+        ranges=new ArrayList<String>();
     }
 
-    public ArrayList<String> getOperations(){
-        return operations;
+    public ArrayList<String> getRanges(){
+        return ranges;
     }
+
 }
-
-
-

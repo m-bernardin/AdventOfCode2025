@@ -1,16 +1,15 @@
-package Day2;
 import java.util.*;
 
-public class Decoder1 {
+public class Decoder2 {
 
-    private Parser parser;
+    private Reader2 reader;
     private ArrayList<String> ranges;
     private long sum;
 
-    public Decoder1()
+    public Decoder2()
     {
-        parser=new Parser();
-        ranges=parser.getRanges();
+        reader=new Reader2();
+        ranges=reader.getRanges();
         decodeMultipleRepeat();
     }
 
