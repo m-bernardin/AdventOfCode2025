@@ -1,8 +1,9 @@
-//package Day2;
-public class Driver {
+package Day2;
+
+public class Driver1 {
     public static void main(String[] args)
 	{
 		@SuppressWarnings("unused")
-		Decoder decoder = new Decoder();
+		Decoder1 decoder = new Decoder1();
     }
 }

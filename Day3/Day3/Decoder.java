@@ -1,5 +1,4 @@
 package Day3;
-
 import java.util.ArrayList;
 
 public class Decoder {
@@ -17,7 +16,7 @@ public class Decoder {
     public void decode() {
         System.out.println("////decoding started////");
         for(int i=0;i<rows.size();++i){
-            System.out.println("\n////started decoding row: "+rows.get(i)+"////");
+            System.out.println("\n////started decoding row:"+rows.get(i)+"////");
             ArrayList<String> row=parseRow(rows.get(i));
             String highest="";
             String rightHighest="";

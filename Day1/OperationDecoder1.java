@@ -1,14 +1,14 @@
 import java.util.*;
 
-public class OperationDecoder{
+public class OperationDecoder1{
 
-    private OperationReader reader;
+    private OperationReader1 reader;
     private ArrayList<String> operations;
     private int pointer=50;
     private int count;
 
-    public OperationDecoder(){
-        reader = new OperationReader();
+    public OperationDecoder1(){
+        reader = new OperationReader1();
         operations=reader.getOperations();
         decodeInstructions();
     }

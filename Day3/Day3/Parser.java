@@ -1,31 +1,32 @@
+package Day3;
+
 import java.io.*;
 import java.util.*;
 
-public class OperationReader{
+public class Parser{
     private File input;
     private Scanner reader;
-    private ArrayList<String> operations;
+    private ArrayList<String> rows;
 
-    public OperationReader(){
+    public Parser(){
         setup();
         readInput();
     }
 
     public void readInput(){
         while(reader.hasNext()){
-            String op = reader.next();
-            operations.add(op);
-            //System.out.println(op);
+            String row = reader.next();
+            rows.add(row);
         }
         System.out.println("//////array read-out//////");
-        for(int i=0;i<operations.size();++i){
-            System.out.println(operations.get(i));
+        for(int i=0;i<rows.size();++i){
+            System.out.println(rows.get(i));
         }
-        System.out.println("/////array read out complete/////");
+        System.out.println("//////array read out complete//////");
     }
 
     public void setup(){
-        input=new File("Day1\\input.txt");
+        input=new File("Day3\\input.txt");
         if(input.exists()) System.out.println("File found");
         else
             try {
@@ -40,13 +41,10 @@ public class OperationReader{
             e.printStackTrace();
         }
         reader.useDelimiter("\n");
-        operations=new ArrayList<String>();
+        rows=new ArrayList<String>();
     }
 
-    public ArrayList<String> getOperations(){
-        return operations;
+    public ArrayList<String> getrows(){
+        return rows;
     }
 }
-
-
-

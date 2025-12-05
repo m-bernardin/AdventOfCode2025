@@ -1,12 +1,15 @@
-package Day3;
+package Day2;
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Parser{
+public class Parser {
     private File input;
     private Scanner reader;
-    private ArrayList<String> rows;
+    private ArrayList<String> ranges;
 
     public Parser(){
         setup();
@@ -15,18 +18,18 @@ public class Parser{
 
     public void readInput(){
         while(reader.hasNext()){
-            String row = reader.next();
-            rows.add(row);
+            String range = reader.next();
+            ranges.add(range);
         }
         System.out.println("//////array read-out//////");
-        for(int i=0;i<rows.size();++i){
-            System.out.println(rows.get(i));
+        for(int i=0;i<ranges.size();++i){
+            System.out.println(ranges.get(i));
         }
-        System.out.println("//////array read out complete//////");
+        System.out.println("/////array read out complete/////");
     }
 
     public void setup(){
-        input=new File("Day3\\test.txt");
+        input=new File("Day2\\Day2\\input.txt");
         if(input.exists()) System.out.println("File found");
         else
             try {
@@ -40,11 +43,12 @@ public class Parser{
             System.out.println("An exception occured");
             e.printStackTrace();
         }
-        reader.useDelimiter("\n");
-        rows=new ArrayList<String>();
+        reader.useDelimiter(",");
+        ranges=new ArrayList<String>();
     }
 
-    public ArrayList<String> getrows(){
-        return rows;
+    public ArrayList<String> getRanges(){
+        return ranges;
     }
+
 }

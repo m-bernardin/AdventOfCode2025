@@ -1,13 +1,13 @@
-
+package Day2;
 import java.util.*;
 
-public class Decoder {
+public class Decoder1 {
 
     private Parser parser;
     private ArrayList<String> ranges;
     private long sum;
 
-    public Decoder()
+    public Decoder1()
     {
         parser=new Parser();
         ranges=parser.getRanges();
