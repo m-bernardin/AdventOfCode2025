@@ -50,7 +50,7 @@ public class OperationDecoder1{
             String operation=operations.get(i);
             System.out.println("\n////new operation////");
             System.out.println("operation string: "+operation);
-            System.out.println("operation substring: "+operation.substring(1)+"string length: "+operation.length());
+            System.out.println("operation substring: "+operation.substring(1)+"\nstring length: "+operation.length());
             int amnt=Integer.parseInt(operation.substring(1,operation.length()));
             char direction=operation.charAt(0);
             //System.out.println(direction);
