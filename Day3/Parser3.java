@@ -24,7 +24,7 @@ public class Parser3{
     }
 
     public void setup(){
-        input=new File("Day3\\input.txt");
+        input=new File("Day3\\test.txt");
         if(input.exists()) System.out.println("File found");
         else
             try {

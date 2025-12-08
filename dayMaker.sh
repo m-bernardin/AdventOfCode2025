@@ -67,6 +67,7 @@ public class Parser%d {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
         try {
             reader=new Scanner(input);
         } catch (FileNotFoundException e) {
@@ -76,7 +77,6 @@ public class Parser%d {
         reader.useDelimiter(",");
         ranges=new ArrayList<String>();
         }
-    }
 
     public ArrayList<String> getRanges(){
         return ranges;
