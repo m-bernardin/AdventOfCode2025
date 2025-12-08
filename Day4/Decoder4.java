@@ -31,56 +31,58 @@ public class Decoder4 {
                 writer.write("\n////Begin checking row: "+rows.get(currentRow)+"////");
                 for(int currentColumn=0;currentColumn<columns.size();++currentColumn){
                     int surroundingPiles=0;
-                    //magic code to check piles on row above
-                    if(currentRow!=0){
-                        writer.write("\n    checking upper row");
-                        String upperRow=rows.get(currentRow-1);
-                        for(int i=0;i<3;++i){
-                            int columnToCheck=currentColumn-1+i;
-                            writer.write("\n      checking column: "+columnToCheck+", on row: "+upperRow);
-                            char pileToCheck='0';
-                            if(columnToCheck!=11&&columnToCheck!=-1){
-                                pileToCheck=upperRow.charAt(columnToCheck);
-                                writer.write("\n      checking pile: "+pileToCheck);
-                            }
-                            if(pileToCheck=='@'){
-                                ++surroundingPiles;
-                                writer.write("\n      checked pile is paper, total piles surrounding: "+surroundingPiles);
-                            }
-                        }
-                    }
-                    //magic code to check adjacent piles
-                    if(currentColumn!=0&&rows.get(currentRow).charAt(currentColumn-1)=='@'){
-                        ++surroundingPiles;
-                        writer.write("\n      checked pile is paper, total piles surrounding: "+surroundingPiles);
-                    }
-                    if(currentColumn!=10&&rows.get(currentRow).charAt(currentColumn+1)=='@'){
-                        ++surroundingPiles;
-                        writer.write("\n      checked pile is paper, total piles surrounding: "+surroundingPiles);
-                    }
-                    //magic code to check piles on row below
-                    if(currentRow!=9){
-                        writer.write("\n    checking lower row");
-                        String lowerRow=rows.get(currentRow+1);
-                        for(int i=0;i<3;++i){
-                            int columnToCheck=currentColumn-1+i;
-                            writer.write("\n      checking column: "+columnToCheck+", on row: "+lowerRow);
-                            char pileToCheck='0';
-                            if(columnToCheck!=11&&columnToCheck!=-1){
-                                pileToCheck=lowerRow.charAt(columnToCheck);
-                                writer.write("\n      checking pile: "+pileToCheck);
-                            }
-                            if(pileToCheck=='@'){
-                                ++surroundingPiles;
-                                writer.write("\n      checked pile is paper, total piles surrounding: "+surroundingPiles);
+                    if(columns.get(currentColumn).charAt(currentRow)!='.'){
+                        //magic code to check piles on row above
+                        if(currentRow!=0){
+                            writer.write("\n    checking upper row");
+                            String upperRow=rows.get(currentRow-1);
+                            for(int i=0;i<3;++i){
+                                int columnToCheck=currentColumn-1+i;
+                                writer.write("\n      checking column: "+columnToCheck+", on row: "+upperRow);
+                                char pileToCheck='0';
+                                if(columnToCheck!=11&&columnToCheck!=-1){
+                                    pileToCheck=upperRow.charAt(columnToCheck);
+                                    //writer.write("\n      checking pile: "+pileToCheck);
+                                }
+                                if(pileToCheck=='@'){
+                                    ++surroundingPiles;
+                                    writer.write("\n      checked pile is paper, total piles surrounding: "+surroundingPiles);
+                                }
                             }
                         }
+                        //magic code to check adjacent piles
+                        if(currentColumn!=0&&rows.get(currentRow).charAt(currentColumn-1)=='@'){
+                            ++surroundingPiles;
+                            writer.write("\n      checked pile is paper, total piles surrounding: "+surroundingPiles);
+                        }
+                        if(currentColumn!=10&&rows.get(currentRow).charAt(currentColumn+1)=='@'){
+                            ++surroundingPiles;
+                            writer.write("\n      checked pile is paper, total piles surrounding: "+surroundingPiles);
+                        }
+                        //magic code to check piles on row below
+                        if(currentRow!=9){
+                            writer.write("\n    checking lower row");
+                            String lowerRow=rows.get(currentRow+1);
+                            for(int i=0;i<3;++i){
+                                int columnToCheck=currentColumn-1+i;
+                                writer.write("\n      checking column: "+columnToCheck+", on row: "+lowerRow);
+                                char pileToCheck='0';
+                                if(columnToCheck!=11&&columnToCheck!=-1){
+                                    pileToCheck=lowerRow.charAt(columnToCheck);
+                                    writer.write("\n      checking pile: "+pileToCheck);
+                                }
+                                if(pileToCheck=='@'){
+                                    ++surroundingPiles;
+                                    writer.write("\n      checked pile is paper, total piles surrounding: "+surroundingPiles);
+                                }
+                            }
+                        }
+                        if(surroundingPiles<4){
+                            ++moveablePiles;
+                            writer.write("\n        pile found to be moveable");
+                        }
+                        writer.write("\n        current total: "+moveablePiles);
                     }
-                    if(surroundingPiles<4){
-                        ++moveablePiles;
-                        writer.write("\npile found to be moveable");
-                    }
-                    writer.write("\n\nrow complete\ncurrent total: "+moveablePiles);
                 }
             }
             writer.write("\n////////End Decoding////////");
