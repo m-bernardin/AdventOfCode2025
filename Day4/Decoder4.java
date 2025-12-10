@@ -83,15 +83,16 @@ public class Decoder4 {
                             if(surroundingPiles<4){
                                 ++moveablePiles;
                                 ++pilesMoved;
-                                rows.set(currentColumn, removePile(rows.get(currentColumn), currentColumn));
-                                columns.set(currentRow, removePile(columns.get(currentRow), currentRow));
+                                rows.set(currentRow, removePile(rows.get(currentRow), currentColumn));
+                                columns.set(currentColumn, removePile(columns.get(currentColumn), currentRow));
                                 writer.write("\n        pile found to be moveable");
                             }
                             //System.out.println("\n        current total: "+moveablePiles);
                         }
                     }
-                    if(pilesMoved==0)noMoreMoveableFlag=true;
                 }
+                if(pilesMoved==0)noMoreMoveableFlag=true;
+                System.out.println("loop complete, piles moved: "+pilesMoved+"\nnoMoreMoveableFlag state: "+noMoreMoveableFlag+"\n");
             }
             System.out.println("\n////////End Decoding////////");
             System.out.println("\nmoveable piles: "+moveablePiles);

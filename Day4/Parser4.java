@@ -29,7 +29,7 @@ public class Parser4 {
     }
 
     public void setup(){
-        input=new File("Day4\\test4.txt");
+        input=new File("Day4\\input4.txt");
         if(input.exists()) System.out.println("File found");
         else{
             try {
@@ -54,7 +54,7 @@ public class Parser4 {
     {
         for(int i=0;i<rows.size();++i){
             String column="";
-            for(int j=0;j<10;++j){
+            for(int j=0;j<135;++j){
                 column+=(rows.get(j).charAt(i)+"");
             }
             columns.add(column);
