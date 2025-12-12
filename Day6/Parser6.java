@@ -4,31 +4,30 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Parser5 {
+public class Parser6 {
     private File input;
     private Scanner reader;
-    private ArrayList<String> lines;
+    private ArrayList<String> ranges;
 
-    public Parser5(){
+    public Parser6(){
         setup();
         readInput();
     }
 
     public void readInput(){
         while(reader.hasNext()){
-            String line = reader.next();
-            lines.add(line);
+            String range = reader.next();
+            ranges.add(range);
         }
         System.out.println("//////array read-out//////");
-        for(int i=0;i<lines.size();++i){
-            System.out.println(lines.get(i));
+        for(int i=0;i<ranges.size();++i){
+            System.out.println(ranges.get(i));
         }
         System.out.println("/////array read out complete/////");
-
     }
 
     public void setup(){
-        input=new File("Day5\\input5.txt");
+        input=new File("Day6\\input6.txt");
         if(input.exists()) System.out.println("File found");
         else{
             try {
@@ -43,11 +42,11 @@ public class Parser5 {
             System.out.println("An exception occured");
             e.printStackTrace();
         }
-        reader.useDelimiter("\n");
-        lines=new ArrayList<String>();
+        reader.useDelimiter(" ");
+        ranges=new ArrayList<String>();
         }
 
-    public ArrayList<String> getLines(){
-        return lines;
+    public ArrayList<String> getRanges(){
+        return ranges;
     }
 }
